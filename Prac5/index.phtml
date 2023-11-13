@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документ, состоящий из HTML-текста и PHP-кода</title>
+</head>
+<body>
+  <?php 
+  echo "А вот и PHP!<br>"; 
+  ?>
+  Всё очень просто!<br>
+  <?php
+    $i = 6; // целое
+    $v = 7;
+    $d = 4.89; // дробное
+    $str = "PHP для всех!"; // строка
+    echo ($i + $d);
+    echo "<br>Привет, мир! ".$str."<br>";
+    if($i == $v)
+    {
+      echo $i + $v;
+    }
+    else
+    {
+      echo $i.$v;
+    }
+    $b = $a = 5;
+    echo "<br>переменная a=$a, b=$b";
+    $c = $a++;
+    echo "<br>переменная a=$a, c=$c";
+    $e = $d = ++$b;
+    echo "<br>переменная e=$e, d=$d, b=$b";
+    $g = 10;
+    $h = $g += 10;
+    echo "<br>переменная g=$g, h=$h";
+  ?>
+
+</body>
+</html>
