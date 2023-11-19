@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторная работа №5</title>
+</head>
+<body>
+  <form action="process_data.php" id="form" method="post">
+    <h3> Анкета пользователя</h3>
+    <table>
+    <tr>
+    <td> Логин: </td>
+    <td> <input type="text" name="login" id="login" size="30" onkeydown="validationLogin()"><span id="textlogin"></span></td>
+    </tr>
+    <script type="text/javascript">
+      function validationLogin()
+      {
+        var login = document.getElementById("login").value;
+        var text = document.getElementById("textlogin");
+
+        if(login.length >= 3 && login.length <=15) 
+        {
+          text.innerHTML = "Введен правильный логин."; 
+          text.style.color = "#00ff00";
+        }
+        else
+        {
+          text.innerHTML = "Вы ввели неправильный логин, логин должен быть не менее чем из 3 и не более чем из 15 символов. Попробуйте снова.";
+          text.style.color = "#ff0000"; 
+        }
+      }
+    </script>
+    <tr>
+    <td> Пароль: </td>
+    <td> <input type="password" name="password" id="password" size="10" onkeydown="validationPassword()"><span id="textpassword"></span></td></tr>
+    </tr>
+    <script type="text/javascript">
+      function validationPassword()
+      {
+        var password = document.getElementById("password").value;
+        var text = document.getElementById("textpassword");
+
+        if(password.length >= 10 && password.length <=15) 
+        {
+          text.innerHTML = "Введен правильный пароль."; 
+          text.style.color = "#00ff00";
+        }
+        else
+        {
+          text.innerHTML = "Вы ввели неправильный пароль, пароль должен быть не менее чем из 10 и не более чем из 15 символов. Попробуйте снова.";
+          text.style.color = "#ff0000"; 
+        }
+      }
+    </script>
+    <td> Город: </td>
+    <td> <select name="optionSelect">
+    <option id="optionSelect" name="optionSelect" value="Moscow"> Москва
+    <option id="optionSelect" name="optionSelect" selected=2 value="Saint-Petersburg"> Санкт-Петербург
+    <option id="optionSelect" name="optionSelect" value="Kazan"> Казань
+    <option id="optionSelect" name="optionSelect" value="Murmansk"> Мурманск
+    <option id="optionSelect" name="optionSelect" value="Other..."> Другой...
+    </select> </td></tr>
+    <tr>
+    <td> Почта: </td>
+    <td> <input type="text" id="email" name="email" size="30" onkeydown="validationEmail()"><span id="textemail"></span>
+    </td>
+    </tr>
+    <script type="text/javascript">
+      function validationEmail()
+      {
+        var email = document.getElementById("email").value;
+        var text = document.getElementById("textemail");
+
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]/;
+        // var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if(email.match(pattern))
+        {
+          text.innerHTML = "Введен правильный адрес почты."; 
+          text.style.color = "#00ff00";
+        }
+        else
+        {
+          text.innerHTML = "Вы ввели неправильный адрес почты, попробуйте снова.";
+          text.style.color = "#ff0000"; 
+        }
+      }
+    </script>
+    </table>
+    <h4> Укажите свою возрастную группу </h4>
+    <input id="ageInput" type="radio" name="ageInput" value="child"> 7-12 лет
+    <input id="ageInput" type="radio" name="ageInput" value="junior" checked> 13-20 лет
+    <input id="ageInput" type="radio" name="ageInput" value="adult"> от 20 лет
+   
+    <h4> Укажите свои увлечения </h4>
+    <input id="hobbyInput" type="radio" name="hobbyInput" value="computers"> Компьютеры
+    <input id="hobbyInput" type="radio" name="hobbyInput" value="art"> Литература
+    <input id="hobbyInput" type="radio" name="hobbyInput" value="music"> Музыка
+    <input id="hobbyInput" type="radio" name="hobbyInput" value="avto"> Автомобили
+    <input id="hobbyInput" type="radio" name="hobbyInput" value="sport"> Спорт
+    <br>
+    <input type="submit" value="Отправить">
+    <input type="reset" value="Очистить">
+   
+   </form>
+</body>
+</html>
